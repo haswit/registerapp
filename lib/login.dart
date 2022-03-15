@@ -23,6 +23,7 @@ class _LoginState extends State<Login> {
   final passwordController = TextEditingController();
 
   userLogin() async {
+    print("Checking credentials");
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
@@ -50,6 +51,8 @@ class _LoginState extends State<Login> {
             ),
           ),
         );
+      } else {
+        print("Error");
       }
     }
   }
@@ -149,6 +152,9 @@ class _LoginState extends State<Login> {
                           }
                           return null;
                         },
+                        obscureText: true,
+                        enableSuggestions: false,
+                        autocorrect: false,
                         decoration: InputDecoration(
                           hintText: 'Enter Password',
                         )),

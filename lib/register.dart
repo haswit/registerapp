@@ -160,6 +160,9 @@ class _RegisterState extends State<Register> {
                       height: 20,
                     ),
                     TextFormField(
+                        obscureText: true,
+                        enableSuggestions: false,
+                        autocorrect: false,
                         controller: passwordController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
